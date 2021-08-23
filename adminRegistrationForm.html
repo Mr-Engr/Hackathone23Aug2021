@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration Form</title>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        
+        <button onclick="back()"  class="btn btn-primary float-right" style="width: 120px;">Back</button>
+
+        <h3>Sign Up Form For Restaurant</h3> 
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+
+        <label for="rest-name"><b>Restautrant Name:</b></label>
+        <input type="text" placeholder="Resturant Name" name="rest-name" required id="rest-name">
+
+
+        <label for="user-name"><b>User Name:</b></label>
+        <input type="text" placeholder="User Name" name="user-name" required id="user-name">
+
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required id="email">
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required id="psw">
+
+     
+        <label for="country">Choose your Country:</label>
+
+        <select name="country" id="country">
+          <option value="92" selected>Pakistan</option>
+          <option value="91" >India</option>
+          <option value="93">Bangladesh</option>
+          <option value="90">Srilanka</option>
+        </select>
+
+        </br>
+        <label for="city-name"><b>City Name:</b></label>
+        <input type="text" placeholder="City Name" name="city-name" required id="city-name">
+
+
+
+        <p>If you already have an account <a href="newlogin.html" style="color:dodgerblue">Signin Here!</a>.</p>
+
+        <div class="clearfix">
+            <button class="signupbtn" onclick="regiserUser()">Sign Up</button>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

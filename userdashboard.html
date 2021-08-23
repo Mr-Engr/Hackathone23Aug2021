@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+    <link rel="stylesheet" href="stye.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+ 
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<div class="divContPro">
+
+
+
+</div>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+        <div class="container">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <img src="./resturantimages/resturantlogo.png" width="120px" height="80px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span id="bar"> <i class="fas fa-bars"></i></span>
+          
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto" style="background-color: white;">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="adminRegistrationForm.html" style="color: black;">Admin Registration</a>
+              </li>
+
+            <li class="nav-item">
+              <a class="nav-link" onclick="signOut()" style="color: black;">SignOut</a>
+            </li>
+           
+        
+              <li class="nav-item">
+                <i class="fad fa-search" ></i>
+                <!-- <i class="fad fa-shopping-cart"></i> -->
+              </li>
+              
+          
+          
+        </div>
+    </div>
+      </nav>
+
+
+
+
+
+      <!-- Section Status Start -->
+
+      <section id="featured" class="my-5">
+        <div class="container text-center mt-5 py-5">
+
+    <div>
+        <div class="row">
+            <div class="col-lg-4 overCard overflow-scroll" >
+                <h3 style="text-align: center;">Pending</h3>
+                <div class="d-grid gap-3"id="dataLoadPending">
+                  <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                  <div class="p-1 bg-light border">Grid item 2</div>
+                  <div class="p-1 bg-light border">Grid item 3</div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 overCard overflow-scroll ">
+                <h3 style="text-align: center;">Accepted</h3>
+                <div class="d-grid gap-3" id="dataLoadAccepted">
+                  <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                  <div class="p-1 bg-light border">Grid item 2</div>
+                  <div class="p-1 bg-light border">Grid item 3</div> -->
+                </div>
+          </div>
+          <div class="col-lg-4 overCard overflow-scroll">
+                <h3 style="text-align: center;">Delievered</h3>
+                <div class="d-grid gap-3" id="dataLoadDelievered">
+                  <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                  <div class="p-1 bg-light border">Grid item 2</div>
+                  <div class="p-1 bg-light border">Grid item 3</div> -->
+                </div>
+  
+          </div>
+        </div>
+    </div>
+            </div>
+        </section>
+  
+      <!-- Section Status End -->
+  
+
+
+     <!-- Start  -->
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Dashboard</title>
+     
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     
+     
+         <link rel="stylesheet" href="stye.css">
+     
+     
+         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+     
+         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+         
+         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+         
+         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+         
+         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+     
+      
+     
+         <!-- Latest compiled and minified CSS -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+         <!-- jQuery library -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     
+         <!-- Popper JS -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     
+         <!-- Latest compiled JavaScript -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     
+     
+         <link rel="stylesheet" href="style.css">
+     
+     
+     </head>
+     <body onload="fetchdata()">
+         
+         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+             <div class="container">
+             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+             <img src="./resturantimages/resturantlogo.png" width="120px" height="80px">
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span id="bar"> <i class="fas fa-bars"></i></span>
+               
+             </button>
+           
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto" style="background-color: white;">
+                 <li class="nav-item active">
+                   <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                 </li>
+     
+                 <li class="nav-item">
+                     <a class="nav-link" href="adminRegistrationForm.html" style="color: black;">Admin Registration</a>
+                   </li>
+     
+                 <li class="nav-item">
+                   <a class="nav-link" onclick="signOut()" style="color: black;">SignOut</a>
+                 </li>
+                
+             
+                   <li class="nav-item">
+                     <i class="fad fa-search" ></i>
+                     <!-- <i class="fad fa-shopping-cart"></i> -->
+                   </li>
+                   
+               
+               
+             </div>
+         </div>
+           </nav>
+     
+     
+         <!-- Section Status Start -->
+      <!-- <section>
+       
+         <div class="container">
+           <div class="row">
+            <h1> <h1>
+            <br>
+            <br>
+            <br>
+            <br>
+     
+           </div>
+     
+           </div>
+     
+     
+         </section>  -->
+     
+         <!-- Section Status End -->
+     
+     
+     
+     
+     
+           <!-- Upload Data Into FireBase Start -->
+     
+     
+           <div class="container">
+     
+     
+     
+     
+     
+     <!-- Section Status Start -->
+     
+     <section>
+       
+       <div class="container">
+         <div class="row">
+             <div class="col-lg-4 overCard overflow-scroll" >
+                 <h3 style="text-align: center;">Pending</h3>
+                 <div class="d-grid gap-3"id="dataLoadPending">
+     
+                   <div class="overflow-auto border h-200 overflow-auto">
+     
+                     <h4>NO Pending Request </h4> 
+                   </div>
+                   <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                   <div class="p-1 bg-light border">Grid item 2</div>
+                   <div class="p-1 bg-light border">Grid item 3</div> -->
+                 </div>
+             </div>
+             <div class="col-lg-4 overCard overflow-scroll ">
+                 <h3 style="text-align: center;">Accepted</h3>
+                 <div class="d-grid gap-3" id="dataLoadAccepted">
+                   
+                   <div class="overflow-auto border h-200 overflow-auto">
+     
+                     <h4>No Accepted Request </h4>
+                   </div>
+                   <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                   <div class="p-1 bg-light border">Grid item 2</div>
+                   <div class="p-1 bg-light border">Grid item 3</div> -->
+                 </div>
+           </div>
+           <div class="col-lg-4 overCard overflow-scroll">
+                 <h3 style="text-align: center;">Delievered</h3>
+                 <div class="d-grid gap-3" id="dataLoadDelievered">
+                   <div class="overflow-auto border h-200 overflow-auto">
+     
+                     <h4>No Delivered Request </h4>
+                   </div>
+                   <!-- <div class="p-1 bg-light border">Grid item 1</div>
+                   <div class="p-1 bg-light border">Grid item 2</div>
+                   <div class="p-1 bg-light border">Grid item 3</div> -->
+                 </div>
+     
+           </div>
+         </div>
+     
+         </div>
+     
+     
+       </section>
+     
+       <!-- Section Status End -->
+     
+     
+     
+       
+     
+       <!-- <hr  style="width: 100%; border: 1px solid black;" > -->
+       
+     
+       <!-- Fetch Image from Firebase Start -->
+     
+         
+          <div class="container row mx-auto">
+            <div class= "product text-center col-3  p-3 ml-3" id="cont1">
+           
+         
+               <!-- <img class="img-fluid mb-3" src="" alt="" style="width:350px;height:200px; " > -->
+     
+             </div>
+     
+            <!-- <div class= "product text-center col-3" id="cont1"> -->
+            
+         
+             <!-- <img class="img-fluid mb-3" src="" alt="" style="width:350px;height:200px; " > -->
+     
+           <!-- </div> -->
+     
+          <div class= "product text-center col-3  p-3 ml-3" id="cont2"> 
+           
+         
+           <!-- <img class="img-fluid mb-3" src="" alt="" style="width:350px;height:200px; " > -->
+     
+         </div> 
+     
+        <div class= "product text-center col-3 p-3 ml-3" id="cont3"> 
+           
+         
+         <!-- <img class="img-fluid mb-3" src="" alt="" style="width:350px;height:200px; " > -->
+     
+      </div>
+     <!-- End -->
+
+
+
+
+
+
+
+      <section id="featured" class="my-5">
+        <div class="container text-center mt-5 py-5">
+       <h3> Pakistani Food Are also Available </h3>
+       <hr class="mx-auto">
+       <p>Here you can check out our new dishes with fair price on our website </p>
+      </div>
+      
+      <div class="row mx-auto container">
+          <div class="product text-center col-lg-3 col-md-4 col-12"> 
+              <img class="img-fluid mb-3" src="resturantimages/biryani.jpg" style="width:350px;height:200px; ">
+          <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    
+          </div>
+          <h5 class="p-name"> Bombay Biryani </h5>
+          <h4 class="p-price">200 Per Head </h4>
+          <button class="buy-btn"> Buy Now </button>
+          </div>
+    
+    <!-- 2nd image -->
+    
+    <div class="product text-center col-lg-3 col-md-4 col-12"> 
+        <img class="img-fluid mb-3" src="resturantimages/Chapli-kebab.jpg"  style="width:350px;height:200px;" >
+    <div class="star">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <!-- <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i> -->
+    
+    </div>
+    <h5 class="p-name"> Chapli Kabab </h5>
+    <h4 class="p-price">190Rs Per Head </h4>
+    <button class="buy-btn"> Buy Now </button>
+    </div>
+    
+    
+    <!-- 3image -->
+    
+    <div class="product text-center col-lg-3 col-md-4 col-12"> 
+        <img class="img-fluid mb-3" src="resturantimages/kabab.jpg"  style="width:350px;height:200px;" >
+    <div class="star">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <!-- <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i> -->
+    
+    </div>
+    <h5 class="p-name"> Beef Kabab </h5>
+    <h4 class="p-price">200Rs Per Head </h4>
+    <button class="buy-btn"> Buy Now </button>
+    </div>
+    
+    
+    <div class="product text-center col-lg-3 col-md-4 col-12"> 
+        <img class="img-fluid mb-3" src="resturantimages/neharii.jpg"  style="width:350px;height:200px;" >
+    <div class="star">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <!-- <i class="fas fa-star"></i> -->
+    
+    </div>
+    <h5 class="p-name"> Nihari </h5>
+    <h4 class="p-price">200Rs Per Head </h4>
+    <button class="buy-btn"> Buy Now </button>
+    </div>
+    
+    
+
+
+
+    <div class="row mx-auto container">
+        <div class="product text-center col-lg-3 col-md-4 col-12"> 
+            <img class="img-fluid mb-3" src="resturantimages/chinesechicken.jpg" style="width:350px;height:200px; ">
+        <div class="star">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+  
+        </div>
+        <h5 class="p-name"> chinese chicken </h5>
+        <h4 class="p-price">200 Per Head </h4>
+        <button class="buy-btn"> Buy Now </button>
+        </div>
+  
+  <!-- 2nd image -->
+  
+  <div class="product text-center col-lg-3 col-md-4 col-12"> 
+      <img class="img-fluid mb-3" src="resturantimages/Mongolian-Chicken.jpg"  style="width:350px;height:200px;" >
+  <div class="star">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <!-- <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i> -->
+  
+  </div>
+  <h5 class="p-name"> Mongolian-Chicken </h5>
+  <h4 class="p-price">190Rs Per Head </h4>
+  <button class="buy-btn"> Buy Now </button>
+  </div>
+  
+  
+  <!-- 3image -->
+  
+  <div class="product text-center col-lg-3 col-md-4 col-12"> 
+      <img class="img-fluid mb-3" src="resturantimages/PTR-Lemon-Chicken-Chinese.jpg.crdownload"  style="width:350px;height:200px;" >
+  <div class="star">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <!-- <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i> -->
+  
+  </div>
+  <h5 class="p-name"> Lemon Chicken </h5>
+  <h4 class="p-price">200Rs Per Head </h4>
+  <button class="buy-btn"> Buy Now </button>
+  </div>
+  
+  
+  <div class="product text-center col-lg-3 col-md-4 col-12"> 
+      <img class="img-fluid mb-3" src="resturantimages/sesame-chicken.jpg"  style="width:350px;height:200px;" >
+  <div class="star">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <!-- <i class="fas fa-star"></i> -->
+  
+  </div>
+  <h5 class="p-name"> Sesame chicken </h5>
+  <h4 class="p-price">200Rs Per Head </h4>
+  <button class="buy-btn"> Buy Now </button>
+  </div>
+  
+
+
+
+  
+  <div class="row mx-auto container">
+    <div class="product text-center col-lg-3 col-md-4 col-12"> 
+        <img class="img-fluid mb-3" src="resturantimages/sticky-soy-chicken.jpg" style="width:350px;height:200px; ">
+    <div class="star">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+
+    </div>
+    <h5 class="p-name"> sticky-soy-chicken </h5>
+    <h4 class="p-price">200 Per Head </h4>
+    <button class="buy-btn"> Buy Now </button>
+    </div>
+
+<!-- 2nd image -->
+
+<div class="product text-center col-lg-3 col-md-4 col-12"> 
+  <img class="img-fluid mb-3" src="resturantimages/chinese-honey-chicken.jpg"  style="width:350px;height:200px;" >
+<div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<!-- <i class="fas fa-star"></i>
+<i class="fas fa-star"></i> -->
+
+</div>
+<h5 class="p-name"> Chinese Honey Chicken </h5>
+<h4 class="p-price">190Rs Per Head </h4>
+<button class="buy-btn"> Buy Now </button>
+</div>
+
+
+<!-- 3image -->
+
+<div class="product text-center col-lg-3 col-md-4 col-12"> 
+  <img class="img-fluid mb-3" src="resturantimages/kabab.jpg"  style="width:350px;height:200px;" >
+<div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<!-- <i class="fas fa-star"></i>
+<i class="fas fa-star"></i> -->
+
+</div>
+<h5 class="p-name"> Beef Kabab </h5>
+<h4 class="p-price">200Rs Per Head </h4>
+<button class="buy-btn"> Buy Now </button>
+</div>
+
+
+<div class="product text-center col-lg-3 col-md-4 col-12"> 
+  <img class="img-fluid mb-3" src="resturantimages/neharii.jpg"  style="width:350px;height:200px;" >
+<div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<!-- <i class="fas fa-star"></i> -->
+
+</div>
+<h5 class="p-name"> Nihari </h5>
+<h4 class="p-price">200Rs Per Head </h4>
+<button class="buy-btn"> Buy Now </button>
+</div>
+
+
+
+
+
+
+    
+      </div>
+    
+    </section>
+
+
+
+    <!-- Footer -->
+
+
+
+    <footer class="mt-5 py-5">
+      <div class="row container mx-auto pt-5">
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+              <img src="resturantimages/resturantlogo.png"  width="150px" height="50px">
+              <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, natus et mollitia vel laboriosam beatae perferendis reiciendis. </p>
+          </div>
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+      
+             <h5 class="pb-2">&nbsp; Featured</h5>
+                 <ul class="text-uppercase list-unstyled" style="background-color: black;">
+                     <li> <a href="#">Pakistani Dishes </a> </li>
+                     <li> <a href="#">Indian Dishes </a> </li>
+                     <li> <a href="#">Arabian Dishes </a> </li>
+                     <li> <a href="#">Chinese Dishes </a> </li>
+                     <li> <a href="#">New Arrivals </a> </li>
+                     
+                    
+                 </ul>
+      
+              </div>
+      
+      
+              <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+      
+                  <h5 class="pb-2">Contact Us</h5>
+      
+                  <div>
+                       <h6 class="text-uppercase"> Address </h6>
+                       <p> abc-appartment near gulshan e iqbal 13 D. </p>
+      
+                  </div>
+      
+                  
+                  <div>
+                      <h6 class="text-uppercase"> Phone </h6>
+                      <p> 0343-2008277 </p>
+      
+                 </div>
+      
+                 
+                 <div>
+                  <h6 class="text-uppercase"> Email </h6>
+                  <p> engr.zubairkhan01@gmail.com </p>
+      
+             </div>
+                  </div>
+      
+      
+      
+                  <div class="footer-one col-lg-3 col-md-6 col-12 mb-3">
+      
+                      <h5 class="pb-2">Instagram/Facebook</h5>
+                      <div class="row">
+                          <img class="img-fluid w-25 h-100 m-2" src="images/resturantimage/facebook.jpg">
+                          <img class="img-fluid w-25 h-100 m-2" src="images/resturantimage/instagram.jpg">
+                          <img class="img-fluid w-25 h-100 m-2" src="images/resturantimage/twitter.jpg">
+                          <img class="img-fluid w-25 h-100 m-2" src="images/resturantimage/whatsapp.jpg">
+                          <img class="img-fluid w-25 h-100 m-2" src="images/resturantimage/YouTube-logo.jpg">
+      
+      
+      
+                      </div>
+          
+                     
+                      </div>
+      
+      
+      
+      
+      
+      
+      
+          <div class="copyright mt-5"> 
+            <div class="row container mx-auto">
+      
+              <div class="col-lg-4 col-md-6 col-12 text-nowrap"> 
+      
+      <p> Pak-Chinese Cursine @2021. All Rights Reserved</p>
+      
+              </div>
+      
+      <!-- <div class="col-lg-4 col-md-6 col-12>
+          <a href="#"> <i class="fab fa-facebook-f"></i> </a>
+              <a href="#"> <i class="fab fa-twitter"> </i><a>
+                  <a href="#"> <i class="fab fa-linked-in"> </i><a>
+              
+      
+      
+      
+      
+          </div> -->
+      
+      
+      </div>
+      
+      
+            </div>
+      
+          </div>   
+      
+      </footer>
+      
+  
+
+
+
+    <!-- Footer -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+      <script src="appRest.js"></script>
+
+    </body>
+    </html>

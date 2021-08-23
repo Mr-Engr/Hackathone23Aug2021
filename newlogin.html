@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> 
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    
+   
+    
+
+
+
+
+
+</head>
+<body>
+  <div class="center">
+    <h1>Login Form</h1>
+    <form action="#" >
+      <div class="txt_field">
+        <input type="text"  id="email">
+        <span></span>
+    
+        <label>Email</label>
+      </div>
+    
+
+      <div class="txt_field">
+        <input type="password"  id="psw">
+        <span></span>
+        <label>Password</label>
+      </div>
+
+      <div class="pass"> <a href="forget.html"> Forgot Password?</a></div>
+        <input type="submit" value="Login" onclick="signinUser()">
+        <div class="signup_link">
+          Not a member? <a href="index.html">Signup</a>
+          <!-- <p>If you don't have an account <a href="index.html" style="color:dodgerblue">Signup Here</a>.</p> -->
+        </div>
+    </form>
+  </div>
+     <script src="app.js"></script>
+    <!-- <script src="quiz12.js"></script>  -->
+
+</body>
+</html>
